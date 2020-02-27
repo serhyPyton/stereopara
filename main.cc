@@ -1,20 +1,15 @@
 #include <iostream>
-#include "CImg/CImg.h"
+#include "reader.h"
 
-using namespace cimg_library;
+int max_d = 50;
 
 int main(){
-    CImg<unsigned char> image("aloe/view0.png");
-    CImgDisplay main_disp(image,"Click a point");
+    img.init("aloe/view0.png");
 
-    std::cout << "image height " << image.height() << "\n";
-    std::cout << "image width " << image.width() << "\n";
+    auto row1 = img.row(0);
+    auto cache = std::vector<std::vector<double>(max_d)>(img.width);
 
-    int x=0, y=0;
-    for (x = 0; x < 20; x++)
-    {
-        std::cout << (int)image.atXY(x, y, 0, 0) <<" "<< (int)image.atXY(x, y, 0, 1) <<" "<< (int)image.atXY(x, y, 0, 2) << "\n";         
-    }
     
+
     return 0;
 }
